@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		44E65EE525D75A92008C81E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65EE425D75A92008C81E9 /* AppDelegate.swift */; };
 		44E65EE725D75A92008C81E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65EE625D75A92008C81E9 /* SceneDelegate.swift */; };
-		44E65EE925D75A92008C81E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65EE825D75A92008C81E9 /* ViewController.swift */; };
+		44E65EE925D75A92008C81E9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65EE825D75A92008C81E9 /* GameViewController.swift */; };
 		44E65EEC25D75A92008C81E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E65EEA25D75A92008C81E9 /* Main.storyboard */; };
 		44E65EEE25D75A95008C81E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E65EED25D75A95008C81E9 /* Assets.xcassets */; };
 		44E65EF125D75A95008C81E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E65EEF25D75A95008C81E9 /* LaunchScreen.storyboard */; };
+		44E65EFF25D75F88008C81E9 /* onlineGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65EFE25D75F88008C81E9 /* onlineGame.swift */; };
+		44E65F0225D75FC3008C81E9 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F0125D75FC3008C81E9 /* classes.swift */; };
+		44E65F0525D7605C008C81E9 /* sameScreenGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F0425D7605C008C81E9 /* sameScreenGame.swift */; };
+		44E65F0925D760B4008C81E9 /* againstBotGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F0825D760B4008C81E9 /* againstBotGame.swift */; };
+		44E65F0C25D763FD008C81E9 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F0B25D763FD008C81E9 /* Board.swift */; };
+		44E65F1025D764AA008C81E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F0F25D764AA008C81E9 /* Player.swift */; };
 		55AD206C29ED5D03C09A7FA2 /* Pods_BattleBoats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6EC5E4672BFF78A2FDB3FA /* Pods_BattleBoats.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +27,17 @@
 		44E65EE125D75A92008C81E9 /* BattleBoats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleBoats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E65EE425D75A92008C81E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44E65EE625D75A92008C81E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44E65EE825D75A92008C81E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44E65EE825D75A92008C81E9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		44E65EEB25D75A92008C81E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44E65EED25D75A95008C81E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44E65EF025D75A95008C81E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44E65EF225D75A95008C81E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44E65EFE25D75F88008C81E9 /* onlineGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onlineGame.swift; sourceTree = "<group>"; };
+		44E65F0125D75FC3008C81E9 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
+		44E65F0425D7605C008C81E9 /* sameScreenGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sameScreenGame.swift; sourceTree = "<group>"; };
+		44E65F0825D760B4008C81E9 /* againstBotGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = againstBotGame.swift; sourceTree = "<group>"; };
+		44E65F0B25D763FD008C81E9 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		44E65F0F25D764AA008C81E9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6E669AF90A58CC89EDE068B0 /* Pods-BattleBoats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleBoats.debug.xcconfig"; path = "Target Support Files/Pods-BattleBoats/Pods-BattleBoats.debug.xcconfig"; sourceTree = "<group>"; };
 		8A6EC5E4672BFF78A2FDB3FA /* Pods_BattleBoats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BattleBoats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,11 +77,17 @@
 			children = (
 				44E65EE425D75A92008C81E9 /* AppDelegate.swift */,
 				44E65EE625D75A92008C81E9 /* SceneDelegate.swift */,
-				44E65EE825D75A92008C81E9 /* ViewController.swift */,
-				44E65EEA25D75A92008C81E9 /* Main.storyboard */,
-				44E65EED25D75A95008C81E9 /* Assets.xcassets */,
-				44E65EEF25D75A95008C81E9 /* LaunchScreen.storyboard */,
+				44E65EE825D75A92008C81E9 /* GameViewController.swift */,
 				44E65EF225D75A95008C81E9 /* Info.plist */,
+				44E65F0125D75FC3008C81E9 /* classes.swift */,
+				44E65EFE25D75F88008C81E9 /* onlineGame.swift */,
+				44E65F0425D7605C008C81E9 /* sameScreenGame.swift */,
+				44E65F0825D760B4008C81E9 /* againstBotGame.swift */,
+				44E65EEA25D75A92008C81E9 /* Main.storyboard */,
+				44E65EEF25D75A95008C81E9 /* LaunchScreen.storyboard */,
+				44E65EED25D75A95008C81E9 /* Assets.xcassets */,
+				44E65F0B25D763FD008C81E9 /* Board.swift */,
+				44E65F0F25D764AA008C81E9 /* Player.swift */,
 			);
 			path = BattleBoats;
 			sourceTree = "<group>";
@@ -88,7 +106,6 @@
 				6E669AF90A58CC89EDE068B0 /* Pods-BattleBoats.debug.xcconfig */,
 				4094126A4B2F5EE51108BC5D /* Pods-BattleBoats.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -188,9 +205,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44E65EE925D75A92008C81E9 /* ViewController.swift in Sources */,
+				44E65EE925D75A92008C81E9 /* GameViewController.swift in Sources */,
+				44E65F0925D760B4008C81E9 /* againstBotGame.swift in Sources */,
+				44E65F0525D7605C008C81E9 /* sameScreenGame.swift in Sources */,
+				44E65EFF25D75F88008C81E9 /* onlineGame.swift in Sources */,
 				44E65EE525D75A92008C81E9 /* AppDelegate.swift in Sources */,
 				44E65EE725D75A92008C81E9 /* SceneDelegate.swift in Sources */,
+				44E65F0C25D763FD008C81E9 /* Board.swift in Sources */,
+				44E65F1025D764AA008C81E9 /* Player.swift in Sources */,
+				44E65F0225D75FC3008C81E9 /* classes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +364,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69G4AL7N5;
 				INFOPLIST_FILE = BattleBoats/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -349,7 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = KeyboardWarriors.BattleBoats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -362,7 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69G4AL7N5;
 				INFOPLIST_FILE = BattleBoats/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,7 +393,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = KeyboardWarriors.BattleBoats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
