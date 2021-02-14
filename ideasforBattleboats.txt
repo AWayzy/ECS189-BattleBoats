@@ -1,0 +1,48 @@
+Things we need to figure out:
+How to display board? UItableview with image background? multiple labels?
+
+
+
+
+Steps to create BattleBoats in Swift:
+
+On init of gameViewController, create the Game class object. Do not assign player types until a game selection is chosen. 
+
+In game object initialization, prepare to add two player objects. Each player object needs to have two boards, their board and their shooting board. 
+Let them enter player name if player type is user
+if player type is computer give it our own name
+
+init player turn = 0
+
+In board object init, prepare a isHidden variable to show if it is a player's board or view of oppo board.
+
+Need to make ships draggable for setup. Maybe click a square to put front of ship there, have a button above the board to rotate the ship 90 degrees. 
+
+Error handling for ships overlapping, ships hanging over the edge, etc.
+
+Store all boats in array in main game loop file.
+
+When you fire on a square, need to update your firing board (opponents hidden board) and the opponents personal board. 
+
+Need board representation art, hit markers, miss markers.
+Ship representations, ship names, and 
+
+Computer can have 3 difficulties. Easy, fires at random. Medium, fires at random, once it hits, searches nearby squares next. Last, cheats at random. 
+
+Need arrays for each player of the squares their ships reside on, the squares that they have fired at.
+Need to check on every turn if all ships have been destroyed. 
+
+
+
+
+
+
+Screens we will need:
+Menu Screen on launch with choices for type of game
+Screen for each Player's turn
+Screen for intermediate between player turns in pvp on local device
+Settings screen to change color palette? 
+Username / Login screen?
+Scoreboard / etc. screen?
+End of game screen
+
