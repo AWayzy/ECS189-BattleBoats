@@ -10,14 +10,13 @@ import Foundation
 
 class Player{
     var ID: Int
-    var ownBoard: Board
-    var otherBoard: Board
     
-    
-    init(givenID: Int, ownBoard: Board, otherBoard: Board){
+    init(givenID: Int){
         self.ID = givenID
-        self.ownBoard = ownBoard
-        self.otherBoard = otherBoard
     }
     
+    var shootingBoard = Board(type: "none")
+    var setBoard = Board(type: "none")
+
+
 }
