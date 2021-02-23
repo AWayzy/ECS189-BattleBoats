@@ -70,7 +70,7 @@ Player: Has two boards, one for his own and one with fewer read permissions to r
 
 ### ViewControllers and Navigation
 
-HomeView --(bool local_mode/AI_mode)--> SetupView --(Board initial_boards[])--> GameView -> GameOverView
+HomeView --(bool local_mode/AI_mode)--> SetupView --(Board initial_boards[])--> GameView <-> TransitionView -> GameOverView
 
 ### Tasks
 
