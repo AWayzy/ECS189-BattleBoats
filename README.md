@@ -84,6 +84,7 @@ By nature, BattleBoats would only require a server and stored user data in a rem
 ### Models
 
 Board: Two-dimensional array of UI buttons. Individual button attributes (interaction, color) determine whose board (Player, AIPlayer/Player (enemy)) is being viewed, hits, misses, and full sinks. Accompanying 2D array of button attributes map directly to the grid. Board updates each time the attrubutes matrix changes. Each player initializes own board configuration on Setup page.
+
 Player: Has two boards, one for his own and one with fewer read permissions to represent his enemy's grid. Actions for AIPlayer are automated, and initial board is randomized, but AIPlayer is basically a Player.
 
 ### ViewControllers and Navigation
