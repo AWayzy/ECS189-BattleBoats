@@ -43,11 +43,29 @@ Austin Way (AWayzy)
 
 ## Sprint Planning 5
 
+Achievements: 
+
+Moving forward: 
+
+Potential issues: 
+
 ## Sprint Planning 4
+
+Achievements: 
+
+Moving forward: 
+
+Potential issues: 
 
 ## Milestone 2
 
 ## Sprint Planning 3
+
+Achievements: 
+
+Moving forward: 
+
+Potential issues: 
 
 ## Milestone 1
 
