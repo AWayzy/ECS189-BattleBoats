@@ -3,9 +3,9 @@
 ## Project Summary
 
 We're going to build a game with rules similar to the famous Battleship board game. It will have three game modes:
-1. User vs. AI
-2. User vs. User (local device)
-3. *User vs. User (remote)
+1. User vs. User (remote)
+2. *User vs. User (local device)
+3. *User vs. AI
 
 *Dependent on feasibility of implementation.
 
@@ -59,13 +59,13 @@ Potential issues:
 
 ## Milestone 2
 
-## Sprint Planning 3
+### Sprint Planning 3
 
-Achievements: 
+Achievements: Elected to move forward with "magic moment" of various haptic feedback responses to key Battleship actions (hit, sink, miss). Created the grid as grouped set of independent Views, allowing for tap gestures and streamlined move tracking. Pivoted to begin with a remote play mode, flipping local play to a stretch goal. Created Firebase project.
 
-Moving forward: 
+Moving forward: Merge current existing game logic with newly developed board representation. Allow for initial board setup upon start game. Save state of each square and of overall board (with respect to integrity of placed ships) in some data structure. Determine how to send this information to linked opponent once a player has made his move. Save user profile (phone number) on server, and potentially allow username updates. Link players together via server request. Configure haptic feedback previously described. 
 
-Potential issues: 
+Potential issues: None of us have worked with Firebase before, so wiring up the BB server and user database is currently viewed as a blocked task.
 
 ## Milestone 1
 
@@ -79,7 +79,7 @@ We don't intend to use any third-party libraries to develop this app.
 
 ### Server Support
 
-By nature, BattleBoats would only require a server and stored user data in a remote User-User game mode. As this play option is a stretch goal and at the back of the priority queue, we are not pursuing server support at this time.
+By nature, BattleBoats would only require a server and stored user data in a remote User-User game mode. As this play option is a stretch goal at this time and at the back of the priority queue, we are not currently pursuing server support.
 
 ### Models
 
