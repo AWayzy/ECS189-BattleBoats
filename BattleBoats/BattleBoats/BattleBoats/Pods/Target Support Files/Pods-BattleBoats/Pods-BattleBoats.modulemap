@@ -1,6 +1,0 @@
-framework module Pods_BattleBoats {
-  umbrella header "Pods-BattleBoats-umbrella.h"
-
-  export *
-  module * { export * }
-}
