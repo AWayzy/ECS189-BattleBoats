@@ -19,7 +19,7 @@ class CellUnit: UIView {
     var cellSide: CGFloat = -100
     let col:Int
     let row:Int
-    let color: UIColor
+    var color: UIColor
     let type: String
     
     enum celltype{
