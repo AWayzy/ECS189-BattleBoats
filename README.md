@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-We're going to build a game with rules similar to the famous Battleship board game. It will have three game modes:
+We're going to build a game with rules similar to the famous Battleship board game. It will have three* game modes:
 1. User vs. User (remote)
 2. *User vs. User (local device)
 3. *User vs. AI
