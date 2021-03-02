@@ -28,11 +28,11 @@ class Game {
         player2.setBoard = player2setboard
         player2.shootingBoard = player2shootboard
     
-//        let _ = Ship(name: "Ship 1", length: 3, orientation: "h", startPoint: [0,0], cellSide: 0.0)
-//        let _ = Ship(name: "Ship 2", length: 3, orientation: "h", startPoint: [0,0], cellSide: 0.0)
-//        let _ = Ship(name: "Ship 3", length: 4, orientation: "h", startPoint: [0,0], cellSide: 0.0)
-//        let _ = Ship(name: "Ship 4", length: 4, orientation: "h", startPoint: [0,0], cellSide: 0.0)
-//        let _ = Ship(name: "Ship 5", length: 5, orientation: "h", startPoint: [0,0], cellSide: 0.0)
+        let _ = Ship(name: "Ship 1", length: 3, orientation: "h", startPoint: [0,0])
+        let _ = Ship(name: "Ship 2", length: 3, orientation: "h", startPoint: [0,0])
+        let _ = Ship(name: "Ship 3", length: 4, orientation: "h", startPoint: [0,0])
+        let _ = Ship(name: "Ship 4", length: 4, orientation: "h", startPoint: [0,0])
+        let _ = Ship(name: "Ship 5", length: 5, orientation: "h", startPoint: [0,0])
         
         
     }
