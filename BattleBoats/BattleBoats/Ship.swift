@@ -6,31 +6,49 @@
 //
 
 import Foundation
+import UIKit
 
-class Ship{
+class Ship: UIImageView{
     var name: String
     var length: Int
     var orientation: String
-    var startPoint: [Int]
-    var endPoint: [Int]
+    var cellSide: CGFloat
+    var height: CGFloat
+    var width: CGFloat
+    var x: CGFloat
+    var y: CGFloat
+    let originx: CGFloat
+    let originy: CGFloat
     
-    init(name: String, length: Int, orientation: String, startPoint: [Int]){
-        
+    
+    init(name: String, length: Int, orientation: String, x: CGFloat, y: CGFloat, cellSide: CGFloat){
         self.name = name
         self.length = length
         self.orientation = orientation
-        self.startPoint = startPoint
-        self.endPoint = [0]
-//        if orientation == "h"{
-//            self.endPoint = [startPoint[1] + length, startPoint[2]]
-//        }
-//        else if orientation == "v"{
-//            self.endPoint = [startPoint[1], startPoint[2] + length]
-//        }
- //       else{
- //           self.endPoint = [1000,1000]
- //       }
+        self.cellSide = cellSide
+        self.height = cellSide * CGFloat(length)
+        self.width = cellSide
+        self.x = x
+        self.y = y
+        self.originx = x
+        self.originy = y
+        super.init(frame: CGRect(x: x, y: y, width: cellSide, height: cellSide*CGFloat(length)))
+        self.backgroundColor = UIColor.green
+        self.isUserInteractionEnabled = false
         
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func rotate90(){
+        if self.orientation == "H"{
+            self.orientation = "V"
+        }
+        else if self.orientation == "V"{
+            self.orientation = "H"
+        }
     }
     
 }
