@@ -51,17 +51,17 @@ Potential issues:
 
 ## Sprint Planning 4
 
-Achievements: 
+Achievements: Created distinct haptic patterns for each Battleship action, and incorporated vibrations into board setup to "magically" mimic live play. Created Firebase project and designed structure for DB game representation, including recent move information for each player. Added all methods for initial board setup, making for a runnable, partially functional app. Added more view navigation and transitions. Saved board data locally, for necessary DB extractions and updates.
 
-Moving forward: 
+Moving forward: Remaining screens and UI design across the board. Realtime updates and reads from the server. Finding opponents by phone number. Adding the game logic once all other components are in place. Wider incorporation of magic moments (haptics) once server setup and gameplay are firmer. Merge final modifications from all existing branches. Endgame logic.
 
-Potential issues: 
+Potential issues: Timeline may restrict ability to implement customizable usernames. Minor bugs on setup page. Limited knowledge of bringing external images and drawings to use in place of current rectangular objects. Constraints not yet set up.
 
 ## Milestone 2
 
 ### Sprint Planning 3
 
-Achievements: Elected to move forward with "magic moment" of various haptic feedback responses to key Battleship actions (hit, sink, miss). Created the grid as grouped set of independent Views, allowing for tap gestures and streamlined move tracking. Pivoted to begin with a remote play mode, flipping local play to a stretch goal. Created Firebase project.
+Achievements: Elected to move forward with "magic moment" of various haptic feedback responses to key Battleship actions (hit, sink, miss). Created the grid as grouped set of independent Views, allowing for tap gestures and streamlined move tracking. Pivoted to begin with a remote play mode, flipping local play to a stretch goal.
 
 Moving forward: Merge current existing game logic with newly developed board representation. Allow for initial board setup upon start game. Save state of each square and of overall board (with respect to integrity of placed ships) in some data structure. Determine how to send this information to linked opponent once a player has made his move. Save user profile (phone number) on server, and potentially allow username updates. Link players together via server request. Configure haptic feedback previously described. 
 
