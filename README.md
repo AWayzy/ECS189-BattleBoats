@@ -19,25 +19,25 @@ User vs. AI: The user will play against an AI, potentially with different diffic
 
 Link: https://trello.com/b/ap3arKXO/progress.
 
-## Team Members
+## Team Members and Roles
 
-Matthew Afshin (matthewafshin)
+Matthew Afshin (matthewafshin). Role: 
 
 <img src="https://cdn.discordapp.com/attachments/813565377992196136/813568929493549087/2021-02-22-163156.jpg" width="200" height="150">
 
-Noah Cordova (mrcordova)
+Noah Cordova (mrcordova). Role: 
 
 <img src="https://cdn.discordapp.com/attachments/813565377992196136/813567090581176346/IMG_20210222_162418815_MP.jpg" width="150" height="200">
 
-Dhruva Eswar (officialfuggie)
+Dhruva Eswar (officialfuggie). Role: 
 
 <img src="https://cdn.discordapp.com/attachments/800862001122508842/813625991658209340/IMG_1716.jpg" width="150" height="200">
 
-Zilin Peng (ZilinPeng)
+Zilin Peng (ZilinPeng). Role: 
 
 <img src="https://cdn.discordapp.com/attachments/813565377992196136/813568654452588544/Photo_on_9-6-20_at_3.59_AM.jpg" width="225" height="150">
 
-Austin Way (AWayzy)
+Austin Way (AWayzy). Role: 
 
 <img src="https://cdn.discordapp.com/attachments/800862001122508842/813642710191833129/image0.png" width="150" height="200">
 
