@@ -21,23 +21,23 @@ Link: https://trello.com/b/ap3arKXO/progress.
 
 ## Team Members and Roles
 
-Matthew Afshin (matthewafshin). Role: 
+Matthew Afshin (matthewafshin). Role: Initial designs. Played point for developing backend. Designed database and methods for realtime observation.
 
 <img src="https://cdn.discordapp.com/attachments/813565377992196136/813568929493549087/2021-02-22-163156.jpg" width="200" height="150">
 
-Noah Cordova (mrcordova). Role: 
+Noah Cordova (mrcordova). Role: Led UI design. Created solutions to represent and manipulate ship and board objects.
 
 <img src="https://cdn.discordapp.com/attachments/813565377992196136/813567090581176346/IMG_20210222_162418815_MP.jpg" width="150" height="200">
 
-Dhruva Eswar (officialfuggie). Role: 
+Dhruva Eswar (officialfuggie). Role: UX. Haptic feedback patterns for feel, navigation. Iterated on structure of and communication to DB.
 
 <img src="https://cdn.discordapp.com/attachments/800862001122508842/813625991658209340/IMG_1716.jpg" width="150" height="200">
 
-Zilin Peng (ZilinPeng). Role: 
+Zilin Peng (ZilinPeng). Role: Led testing efforts. Finalized UI/UX. Supported research and development of backend.
 
 <img src="https://cdn.discordapp.com/attachments/813565377992196136/813568654452588544/Photo_on_9-6-20_at_3.59_AM.jpg" width="225" height="150">
 
-Austin Way (AWayzy). Role: 
+Austin Way (AWayzy). Role: Spearheaded gameplay implementation. Codified board data for client-server communication. Created foundation and MVP.
 
 <img src="https://cdn.discordapp.com/attachments/800862001122508842/813642710191833129/image0.png" width="150" height="200">
 
