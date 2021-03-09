@@ -201,9 +201,9 @@ class ShipUnit: CellUnit {
                 let newCenter = CGPoint(x: outsideView?.bounds.minX ?? 1.0, y: outsideView?.bounds.minY ?? 1.0)
                 let convertedPts = outsideView?.convert(newCenter, to: boardView)
                 self.color = UIColor.black
-           
-                    self.center.x -= convertedPts?.x ?? 0.0
-                    self.center.y -= convertedPts?.y ?? 0.0
+                doneButton?.isEnabled = false
+                self.center.x -= convertedPts?.x ?? 0.0
+                self.center.y -= convertedPts?.y ?? 0.0
                  
                     
          
