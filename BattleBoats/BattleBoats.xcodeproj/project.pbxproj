@@ -25,6 +25,9 @@
 		44E65F1625DB6874008C81E9 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F1525DB6874008C81E9 /* Cell.swift */; };
 		44E65F1925DB723C008C81E9 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65F1825DB723C008C81E9 /* Ship.swift */; };
 		55AD206C29ED5D03C09A7FA2 /* Pods_BattleBoats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6EC5E4672BFF78A2FDB3FA /* Pods_BattleBoats.framework */; };
+		8337CE5825EDBA8600C04910 /* ShipUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337CE5725EDBA8600C04910 /* ShipUnit.swift */; };
+		FC6D81C325F59C97007160C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC6D81C225F59C97007160C8 /* GoogleService-Info.plist */; };
+		FCF095E825F35EA400AB3536 /* MatchmakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF095E725F35EA400AB3536 /* MatchmakingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,10 @@
 		44E65F1525DB6874008C81E9 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		44E65F1825DB723C008C81E9 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		6E669AF90A58CC89EDE068B0 /* Pods-BattleBoats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleBoats.debug.xcconfig"; path = "Target Support Files/Pods-BattleBoats/Pods-BattleBoats.debug.xcconfig"; sourceTree = "<group>"; };
+		8337CE5725EDBA8600C04910 /* ShipUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipUnit.swift; sourceTree = "<group>"; };
 		8A6EC5E4672BFF78A2FDB3FA /* Pods_BattleBoats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BattleBoats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC6D81C225F59C97007160C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FCF095E725F35EA400AB3536 /* MatchmakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchmakingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 		44E65EE325D75A92008C81E9 /* BattleBoats */ = {
 			isa = PBXGroup;
 			children = (
+				FC6D81C225F59C97007160C8 /* GoogleService-Info.plist */,
 				44E65EE425D75A92008C81E9 /* AppDelegate.swift */,
 				44E65EE625D75A92008C81E9 /* SceneDelegate.swift */,
 				44E65EE825D75A92008C81E9 /* GameViewController.swift */,
@@ -103,6 +110,8 @@
 				44BBE89925EC6F2C007A80FF /* CellUnit.swift */,
 				44BBE8A225EC94AA007A80FF /* TitleViewController.swift */,
 				44BBE8A525ECCD05007A80FF /* SetShipsViewController.swift */,
+				8337CE5725EDBA8600C04910 /* ShipUnit.swift */,
+				FCF095E725F35EA400AB3536 /* MatchmakingViewController.swift */,
 			);
 			path = BattleBoats;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 				44E65EDD25D75A92008C81E9 /* Sources */,
 				44E65EDE25D75A92008C81E9 /* Frameworks */,
 				44E65EDF25D75A92008C81E9 /* Resources */,
+				33B7DC3E551EC6079D4FEBA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E65EF125D75A95008C81E9 /* LaunchScreen.storyboard in Resources */,
+				FC6D81C325F59C97007160C8 /* GoogleService-Info.plist in Resources */,
 				44E65EEE25D75A95008C81E9 /* Assets.xcassets in Resources */,
 				44BBE89F25EC9292007A80FF /* Main.storyboard in Resources */,
 			);
@@ -191,6 +202,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33B7DC3E551EC6079D4FEBA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BattleBoats/Pods-BattleBoats-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BattleBoats/Pods-BattleBoats-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BattleBoats/Pods-BattleBoats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F7BB10847E945C27803A650D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +261,8 @@
 				44BBE8A625ECCD05007A80FF /* SetShipsViewController.swift in Sources */,
 				44E65F0225D75FC3008C81E9 /* classes.swift in Sources */,
 				44BBE89425EC6F1F007A80FF /* BoardViewController.swift in Sources */,
+				FCF095E825F35EA400AB3536 /* MatchmakingViewController.swift in Sources */,
+				8337CE5825EDBA8600C04910 /* ShipUnit.swift in Sources */,
 				44BBE8A325EC94AA007A80FF /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V69G4AL7N5;
+				DEVELOPMENT_TEAM = QSC2FQ7GZ8;
 				INFOPLIST_FILE = BattleBoats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -395,7 +425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V69G4AL7N5;
+				DEVELOPMENT_TEAM = QSC2FQ7GZ8;
 				INFOPLIST_FILE = BattleBoats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

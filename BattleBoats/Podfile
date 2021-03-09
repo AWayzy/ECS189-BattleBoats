@@ -6,5 +6,7 @@ target 'BattleBoats' do
   use_frameworks!
 
   # Pods for BattleBoats
+	pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end

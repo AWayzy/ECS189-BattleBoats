@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CellUnit: UIView {
+class CellUnit: UIView{
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -21,7 +21,9 @@ class CellUnit: UIView {
     let row:Int
     var color: UIColor
     let type: String
-    
+    // var id: String
+    let lenthW: Int
+    let lengthY: Int
     enum celltype{
         case initialNone
         case Hit
@@ -31,20 +33,29 @@ class CellUnit: UIView {
         case Empty
     }
     
-    init(x: Int, y: Int, size: Int, color: UIColor, type: String) {
+    init(x: Int, y: Int, sizeX: Int, sizeY: Int, color: UIColor, type: String) {
+        
         col = x
         row = y
         self.color = color
-        cellSide = CGFloat(size)
-        self.type = type
-        super.init(frame: CGRect(x: col, y: row, width: Int(cellSide), height: Int(cellSide)))
+        cellSide = CGFloat(sizeX)
+        lenthW = sizeX / Int(cellSide)
+        lengthY = sizeY / Int(cellSide)
         
+        self.type = type
+        if (self.type == "ship"){
+            let rect = CGRect(x: col, y: row, width: Int(cellSide), height: sizeY)
+            super.init(frame: rect)
+            
+        } else {
+            super.init(frame: CGRect(x: col, y: row, width: Int(cellSide), height: Int(cellSide)))
+        }
         initGestureRecognizers()
-        run_func()
+        //run_func()
         
     }
     
-    func run_func(){
+   /* func run_func(){
         if(self.type == "alphnum"){
             
         }
@@ -52,22 +63,81 @@ class CellUnit: UIView {
             
         }
         
-    }
+    }*/
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func draw(_ rect: CGRect) {
-
-        let path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: cellSide, height: cellSide))
-        color.setFill()
-        path.fill()
+        var path: UIBezierPath
+        if (self.type == "ship"){
+            path = UIBezierPath(roundedRect: rect, cornerRadius: 30)
+        } else {
+             path = UIBezierPath(rect: rect)
+            
+        }
+            
+      
+        let desiredLineWidth:CGFloat = 10 // your desired value
         
-        path.lineWidth = 2
-        UIColor.black.setStroke()
-        path.stroke()
+     
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = color.cgColor
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 2
+        layer.addSublayer(shapeLayer)
+        
+        if (self.type == "ship"){
+            let shapeLayer = CAReplicatorLayer()
+            
+    
+            
+                
+         
+            let circle = CAShapeLayer()
+            let circlePath = UIBezierPath(arcCenter: CGPoint(x: (cellSide)/2, y: (cellSide/2)), radius: CGFloat( desiredLineWidth - (desiredLineWidth/2) ), startAngle: CGFloat(0), endAngle: CGFloat( Double.pi * 2), clockwise: true)
+              
+                
+            circle.path = circlePath.cgPath
+            circle.fillColor =  UIColor.red.cgColor
+            circle.strokeColor = UIColor.black.cgColor
+            circle.lineWidth = 2
+           
+            
+            let instanceCount = self.lengthY
+            
+            //shapeLayer.instanceBlueOffset = offsetStep
+            shapeLayer.instanceCount = instanceCount
+            shapeLayer.instanceTransform = CATransform3DMakeTranslation(0, cellSide, 0)
+            // shapeLayer1.cornerRadius = bounds.size.width/2
+            
+                
+            //}
+            shapeLayer.addSublayer(circle)
+            layer.addSublayer(shapeLayer)
+            //print(layer.sublayers?.count)
+           
+            
+        }
+        //print(circle.currentPoint)
+        //circle.fill()
+       // circle.lineWidth = 2
+        //let shapeLayer = CAShapeLayer.init(layer: circle)
+        //layoutSublayers(of: shapeLayer)
+        //UIColor.blue.setStroke()
+      //  circle.stroke()
+        //path.append(circle)
+       //setNeedsDisplay()
+       // path.lineWidth = 2
+       //UIColor.black.setStroke()
+      // path.stroke()
+           
     }
+    
+  
     func initGestureRecognizers() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.addGestureRecognizer(tap)
@@ -75,6 +145,16 @@ class CellUnit: UIView {
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let tapPoint = sender.location(in: self.superview)
-        print(tapPoint)
-        print(self.center)
-    }}
+        //print(self.type)
+       // print(self.center)
+        
+      
+        
+        
+        if (self.type == "ship"){
+            
+        }
+       
+    }
+  
+}
