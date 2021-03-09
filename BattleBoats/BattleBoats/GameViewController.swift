@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
     var my_board = ""
     var opp_board = ""
     var move = -100
+    var winner = -1
     
     // illegalMoves array
     
@@ -222,7 +223,8 @@ class GameViewController: UIViewController {
                 //check if all my ships have been sunk
                 if (my_2_count == 0 && my_3_count == 0 && my_E_count == 0 && my_4_count == 0 && my_5_count == 0)
                 {
-                    self.gameOver(winner: self.is_host)
+                    self.winner = self.is_host
+                    // self.gameOver(winner: self.is_host)
                     
 //                    if (self.is_host == 1) {
 //                        self.gameOver(winner: 1)
@@ -233,20 +235,29 @@ class GameViewController: UIViewController {
                 } else if ((opp_2_count == 0 && opp_3_count == 0 && opp_E_count == 0 && opp_4_count == 0 && opp_5_count == 0)) {
                     
                     if (self.is_host == 1) {
-                        self.gameOver(winner: 0)
+                        self.winner = 0
+                        // self.gameOver(winner: 0)
                     } else {
-                        self.gameOver(winner: 1)
+                        self.winner = 1
+                        // self.gameOver(winner: 1)
                     }
-                }
+                } else {
                 // Repeat this until valid move
-                let myMove = self.getMyMove()
-                self.processMyMove(myMove)
-                self.sendMyMoveToDb(myMove)
+                    let myMove = self.getMyMove()
+                    self.processMyMove(myMove)
+                    self.sendMyMoveToDb(myMove)
 //                self.resignTurn()
+                }
             }
             else
             {
                 print("no data available")
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            if (self.winner != -1) {
+                self.gameOver(winner: self.winner)
             }
         }
     }
@@ -276,7 +287,7 @@ class GameViewController: UIViewController {
     func getMyMove() -> Int
     {
         //replace 50 with the move the user presses
-        return 50
+        return 0
     }
     
     // opponent move should be retrieved from the db
