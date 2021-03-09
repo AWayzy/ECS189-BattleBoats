@@ -14,27 +14,27 @@ import Firebase
 // TODO: Return retval (oppMove) after delay, to allow DB read to kick in.
 // TODO: Waiting for other player to join.
 
-//var my_5_count = 5
-//var my_4_count = 4
-//var my_3_count = 3
-//var my_E_count = 3
-//var my_2_count = 2
-//var opp_5_count = 5
-//var opp_4_count = 4
-//var opp_3_count = 3
-//var opp_E_count = 3
-//var opp_2_count = 2
+var my_5_count = 5
+var my_4_count = 4
+var my_3_count = 3
+var my_E_count = 3
+var my_2_count = 2
+var opp_5_count = 5
+var opp_4_count = 4
+var opp_3_count = 3
+var opp_E_count = 3
+var opp_2_count = 2
 
-var my_5_count = 0
-var my_4_count = 0
-var my_3_count = 0
-var my_E_count = 1
-var my_2_count = 0
-var opp_5_count = 0
-var opp_4_count = 0
-var opp_3_count = 0
-var opp_E_count = 1
-var opp_2_count = 0
+//var my_5_count = 0
+//var my_4_count = 0
+//var my_3_count = 0
+//var my_E_count = 1
+//var my_2_count = 0
+//var opp_5_count = 0
+//var opp_4_count = 0
+//var opp_3_count = 0
+//var opp_E_count = 1
+//var opp_2_count = 0
 
 class GameViewController: UIViewController {
     var is_host = 0
