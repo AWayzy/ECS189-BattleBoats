@@ -182,7 +182,8 @@ class SetShipsViewController: UIViewController {
     @IBAction func finishSetup() {
         
         // TODO: Parse this from the actual board.
-        self.my_board = "543E2xxxxx543E2xxxxx543Exxxxxx54xxxxxxxx5xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+//        self.my_board = "543E2xxxxx543E2xxxxx543Exxxxxx54xxxxxxxx5xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        self.my_board = "Exxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         
         dbRef.child(room_id).child("turn").child("cur_player").getData { (error, snapshot) in
             if let error = error {

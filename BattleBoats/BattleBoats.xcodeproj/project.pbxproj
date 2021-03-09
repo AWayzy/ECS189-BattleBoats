@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,7 @@
 		55AD206C29ED5D03C09A7FA2 /* Pods_BattleBoats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6EC5E4672BFF78A2FDB3FA /* Pods_BattleBoats.framework */; };
 		8337CE5825EDBA8600C04910 /* ShipUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337CE5725EDBA8600C04910 /* ShipUnit.swift */; };
 		FC6D81C325F59C97007160C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC6D81C225F59C97007160C8 /* GoogleService-Info.plist */; };
+		FCB9D68825F74E7C007DA02F /* EndgameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9D68725F74E7C007DA02F /* EndgameViewController.swift */; };
 		FCF095E825F35EA400AB3536 /* MatchmakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF095E725F35EA400AB3536 /* MatchmakingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		8337CE5725EDBA8600C04910 /* ShipUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipUnit.swift; sourceTree = "<group>"; };
 		8A6EC5E4672BFF78A2FDB3FA /* Pods_BattleBoats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BattleBoats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC6D81C225F59C97007160C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FCB9D68725F74E7C007DA02F /* EndgameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndgameViewController.swift; sourceTree = "<group>"; };
 		FCF095E725F35EA400AB3536 /* MatchmakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchmakingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				44BBE8A525ECCD05007A80FF /* SetShipsViewController.swift */,
 				8337CE5725EDBA8600C04910 /* ShipUnit.swift */,
 				FCF095E725F35EA400AB3536 /* MatchmakingViewController.swift */,
+				FCB9D68725F74E7C007DA02F /* EndgameViewController.swift */,
 			);
 			path = BattleBoats;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				44E65EE525D75A92008C81E9 /* AppDelegate.swift in Sources */,
 				44BBE89725EC6F26007A80FF /* BoarderView.swift in Sources */,
 				44E65EE725D75A92008C81E9 /* SceneDelegate.swift in Sources */,
+				FCB9D68825F74E7C007DA02F /* EndgameViewController.swift in Sources */,
 				44E65F0C25D763FD008C81E9 /* Board.swift in Sources */,
 				44E65F1625DB6874008C81E9 /* Cell.swift in Sources */,
 				44E65F1025D764AA008C81E9 /* Player.swift in Sources */,

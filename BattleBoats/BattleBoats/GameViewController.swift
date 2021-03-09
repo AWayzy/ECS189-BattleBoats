@@ -14,17 +14,27 @@ import Firebase
 // TODO: Return retval (oppMove) after delay, to allow DB read to kick in.
 // TODO: Waiting for other player to join.
 
-var my_5_count = 5
-var my_4_count = 4
-var my_3_count = 3
-var my_E_count = 3
-var my_2_count = 2
-var opp_5_count = 5
-var opp_4_count = 4
-var opp_3_count = 3
-var opp_E_count = 3
-var opp_2_count = 2
-//var firstMove = true
+//var my_5_count = 5
+//var my_4_count = 4
+//var my_3_count = 3
+//var my_E_count = 3
+//var my_2_count = 2
+//var opp_5_count = 5
+//var opp_4_count = 4
+//var opp_3_count = 3
+//var opp_E_count = 3
+//var opp_2_count = 2
+
+var my_5_count = 0
+var my_4_count = 0
+var my_3_count = 0
+var my_E_count = 1
+var my_2_count = 0
+var opp_5_count = 0
+var opp_4_count = 0
+var opp_3_count = 0
+var opp_E_count = 1
+var opp_2_count = 0
 
 class GameViewController: UIViewController {
     var is_host = 0
@@ -212,20 +222,55 @@ class GameViewController: UIViewController {
                 //check if all my ships have been sunk
                 if (my_2_count == 0 && my_3_count == 0 && my_E_count == 0 && my_4_count == 0 && my_5_count == 0)
                 {
-                    //GAME OVER
+                    self.gameOver(winner: self.is_host)
+                    
+//                    if (self.is_host == 1) {
+//                        self.gameOver(winner: 1)
+//                    } else {
+//                        self.gameOver(winner: 0)
+//                    }
                     return
+                } else if ((opp_2_count == 0 && opp_3_count == 0 && opp_E_count == 0 && opp_4_count == 0 && opp_5_count == 0)) {
+                    
+                    if (self.is_host == 1) {
+                        self.gameOver(winner: 0)
+                    } else {
+                        self.gameOver(winner: 1)
+                    }
                 }
                 // Repeat this until valid move
                 let myMove = self.getMyMove()
                 self.processMyMove(myMove)
                 self.sendMyMoveToDb(myMove)
-                self.resignTurn()
+//                self.resignTurn()
             }
             else
             {
                 print("no data available")
             }
         }
+    }
+    
+    func gameOver(winner: Int) {
+        // End game in DB
+        self.dbRef.child(self.room_id).child("game_over").setValue(1)
+        
+        // Transition
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let endgameViewController = storyboard.instantiateViewController(withIdentifier: "endgameViewController") as? EndgameViewController else {
+            assertionFailure("couldn't find vc")
+            
+            return
+        }
+        
+        endgameViewController.modalPresentationStyle = .fullScreen
+        if (winner != is_host) {
+            endgameViewController.win = 1
+        } else {
+            endgameViewController.win = 0
+        }
+        
+        self.present(endgameViewController, animated: true, completion: nil)
     }
     
     func getMyMove() -> Int

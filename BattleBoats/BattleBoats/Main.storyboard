@@ -168,32 +168,47 @@
             </objects>
             <point key="canvasLocation" x="2545" y="729"/>
         </scene>
-        <!--View Controller-->
+        <!--Endgame View Controller-->
         <scene sceneID="mif-os-nsM">
             <objects>
-                <viewController id="FOE-AW-H6x" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="endgameViewController" id="FOE-AW-H6x" customClass="EndgameViewController" customModule="BattleBoats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OE7-xw-Fz5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GAME OVER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75q-Gv-uMf">
-                                <rect key="frame" x="159" y="180" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAME OVER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75q-Gv-uMf">
+                                <rect key="frame" x="20" y="44" width="144" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Wvh-9l-IcA"/>
+                                    <constraint firstAttribute="width" constant="144" id="bgm-aR-qSw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOU WON/LOST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKp-bY-F3L">
-                                <rect key="frame" x="144" y="242" width="127" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU LOST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKp-bY-F3L">
+                                <rect key="frame" x="273" y="44" width="121" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="B8F-GS-pBe"/>
+                                    <constraint firstAttribute="height" constant="30" id="bi3-lM-T3k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pi9-aN-2eQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EKp-bY-F3L" firstAttribute="top" secondItem="Pi9-aN-2eQ" secondAttribute="top" id="0ns-iP-4mG"/>
+                            <constraint firstItem="75q-Gv-uMf" firstAttribute="top" secondItem="Pi9-aN-2eQ" secondAttribute="top" id="AaP-nR-BKh"/>
+                            <constraint firstItem="75q-Gv-uMf" firstAttribute="leading" secondItem="Pi9-aN-2eQ" secondAttribute="leading" constant="20" id="QfM-m1-zgU"/>
+                            <constraint firstItem="Pi9-aN-2eQ" firstAttribute="trailing" secondItem="EKp-bY-F3L" secondAttribute="trailing" constant="20" id="kCW-oq-JOX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="WinLossLabel" destination="EKp-bY-F3L" id="1sV-AO-EDR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cRi-8v-aIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
