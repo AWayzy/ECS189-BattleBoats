@@ -51,19 +51,11 @@ class CellUnit: UIView{
             super.init(frame: CGRect(x: col, y: row, width: Int(cellSide), height: Int(cellSide)))
         }
         initGestureRecognizers()
-        //run_func()
+      
         
     }
     
-   /* func run_func(){
-        if(self.type == "alphnum"){
-            
-        }
-        else{
-            
-        }
-        
-    }*/
+   
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -109,31 +101,20 @@ class CellUnit: UIView{
             
             let instanceCount = self.lengthY
             
-            //shapeLayer.instanceBlueOffset = offsetStep
+           
             shapeLayer.instanceCount = instanceCount
             shapeLayer.instanceTransform = CATransform3DMakeTranslation(0, cellSide, 0)
-            // shapeLayer1.cornerRadius = bounds.size.width/2
+          
             
                 
-            //}
+        
             shapeLayer.addSublayer(circle)
             layer.addSublayer(shapeLayer)
-            //print(layer.sublayers?.count)
+          
            
             
         }
-        //print(circle.currentPoint)
-        //circle.fill()
-       // circle.lineWidth = 2
-        //let shapeLayer = CAShapeLayer.init(layer: circle)
-        //layoutSublayers(of: shapeLayer)
-        //UIColor.blue.setStroke()
-      //  circle.stroke()
-        //path.append(circle)
-       //setNeedsDisplay()
-       // path.lineWidth = 2
-       //UIColor.black.setStroke()
-      // path.stroke()
+      
            
     }
     
@@ -145,8 +126,7 @@ class CellUnit: UIView{
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let tapPoint = sender.location(in: self.superview)
-        //print(self.type)
-       // print(self.center)
+      
         
       
         

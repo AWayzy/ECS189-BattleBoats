@@ -19,16 +19,11 @@ class SetShipsViewController: UIViewController {
     
     @IBOutlet weak var boardView: UIView!
     
-   /* @IBOutlet weak var lengthFiveShip: UIImageView!
-    @IBOutlet weak var lengthFourShip: UIImageView!
-    @IBOutlet weak var lengthThreeShip: UIImageView!
-    @IBOutlet weak var otherLengthThreeShip: UIImageView!
-    @IBOutlet weak var lengthTwoShip: UIImageView!
-    @IBOutlet weak var doneButton: UIButton!*/
+  
     
     @IBOutlet weak var setShipsButton: UIButton!
     
-    //@IBOutlet weak var rotateShipsButton: UIButton!
+    
     
     @IBOutlet weak var roomIDLabel: UILabel!
     
@@ -52,19 +47,7 @@ class SetShipsViewController: UIViewController {
         super.viewDidLoad()
         roomIDLabel.text = room_id
         
-        /*shipPics = [lengthFiveShip, lengthFourShip, lengthThreeShip, otherLengthThreeShip, lengthTwoShip]
-        
-        for i in 0...4{
-            shipPics[i].isUserInteractionEnabled = false
-            shipPics[i].backgroundColor = UIColor.black
-        }
-        
-        doneButton.isHidden = true
-        doneButton.backgroundColor = UIColor.green
-        doneButton.layer.borderColor = UIColor.green.cgColor
-        doneButton.layer.backgroundColor = UIColor.green.cgColor
-        
-        rotateShipsButton.isHidden = true*/
+       
         
         
         let sides = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
@@ -72,20 +55,7 @@ class SetShipsViewController: UIViewController {
         
         let cellSide = boardView.bounds.height / 11
         boardView.clipsToBounds = true
-        /*lengthFiveShip.frame.size.height = cellSide * 5
-        lengthFiveShip.frame.size.width = cellSide
-        
-        lengthFourShip.frame.size.height = cellSide * 4
-        lengthFourShip.frame.size.width = cellSide
-        
-        lengthThreeShip.frame.size.height = cellSide * 3
-        lengthThreeShip.frame.size.width = cellSide
-        
-        otherLengthThreeShip.frame.size.height = cellSide * 3
-        otherLengthThreeShip.frame.size.width = cellSide
-        
-        lengthTwoShip.frame.size.height = cellSide * 2
-        lengthTwoShip.frame.size.width = cellSide*/
+       
         
         let color1 = UIColor(red: 0, green: 94, blue: 184, alpha: 1.0)
 
@@ -93,8 +63,7 @@ class SetShipsViewController: UIViewController {
         
         for row in stride(from: 0, to: Int(boardView.bounds.height - cellSide), by: Int.Stride(cellSide)) {
             for col in stride(from: 0, to: Int(boardView.bounds.height - cellSide), by: Int.Stride(cellSide)){
-                print(Float(row))
-                print(Float(col))
+               
                 var bothelse = 0
                 if(Float(row) == 0.0){
                     let txtField: UITextField = UITextField(frame: CGRect(x: CGFloat(col) + cellSide, y: CGFloat(row), width: cellSide, height: cellSide))
@@ -138,42 +107,38 @@ class SetShipsViewController: UIViewController {
             cell.isHidden = true
         }
         
+        // adding contraints to ships here
+        let margins = self.boardView.layoutMarginsGuide
+        
         shipArray = zip(shipSizes.indices, shipSizes).map{index, shipSize -> ShipUnit in
-            let ship = ShipUnit(x: Int(cellSide * CGFloat(index+2)) , y: Int(self.view.bounds.maxY - self.boardView.bounds.maxY), sizeX: Int(cellSide), sizeY: Int(cellSide * CGFloat(shipSize)), color: UIColor.yellow, type: "ship")
+            
+            let ship = ShipUnit(x:0 , y: 0, sizeX: Int(cellSide), sizeY: Int(cellSide * CGFloat(shipSize)), color: UIColor.yellow, type: "ship")
+            
+            ship.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(ship)
+            //constraint code
+            ship.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: cellSide * CGFloat(index)).isActive = true
+            ship.topAnchor.constraint(equalTo: margins.bottomAnchor, constant: cellSide).isActive = true
+            
+            ship.widthAnchor.constraint(equalToConstant: CGFloat(Int(cellSide))).isActive = true
+            ship.heightAnchor.constraint(equalToConstant:  CGFloat(Int(cellSide * CGFloat(shipSize)))).isActive = true
+            
             return ship
         }
-        print(shipArray.count)
+       
         
         
     }
    
-   /* func setShips(){
-        shipPics[isDone].isUserInteractionEnabled = false
-        if isDone == 4{
-            doneButton.isUserInteractionEnabled = false
-            doneButton.isHidden = true
-            return
-        }
-        else{
-        shipPics[isDone + 1].isUserInteractionEnabled = true
-        }
-        self.isDone = self.isDone + 1
-    }
-    
-    
-    @IBAction func pressedDone() {
-        setShips()
-    }*/
+
     
     
     @IBAction func pressedSetShips() {
         let rumble = UIImpactFeedbackGenerator(style: .heavy)
         rumble.impactOccurred()
-        //doneButton.isHidden = false
+     
         setShipsButton.isHidden = true
-       // rotateShipsButton.isHidden = false
-      //  shipPics[0].isUserInteractionEnabled = true
+       
         for cell in cellArray{
             cell.isHidden = false
         }
@@ -255,65 +220,7 @@ class SetShipsViewController: UIViewController {
         }
     }
     
-   /* @IBAction func pressedRotateShips() {
-        shipPics[isDone].transform = CGAffineTransform(rotationAngle: (CGFloat.pi/2)*CGFloat(rotationNumber))
-        rotationNumber = rotationNumber + 1
-    }*/
-    
+ 
 }
 
 
-/*extension SetShipsViewController {
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else{
-            return
-        }
-        touchedShip = UIImageView()
-        touchedShip.isUserInteractionEnabled = false
-        touchedShip.backgroundColor = UIColor.clear
-        
-        for ship in shipPics{
-            var location = touch.location(in: ship)
-            if ship.bounds.contains(location){
-                touchedShip = ship
-                if touchedShip.isUserInteractionEnabled == false{
-                    continue
-                }
-                else{
-                location = touch.location(in: view)
-                isDragging = true
-                }
-            }
-        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard isDragging, let touch = touches.first else{
-            return
-        }
-        
-        let location = touch.location(in: view)
-        touchedShip.frame.origin.x = location.x - (touchedShip.frame.size.width / 2)
-        touchedShip.frame.origin.y = location.y - (touchedShip.frame.size.height / 2)
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        isDragging = false
-        
-    }
-    
-    
-    
-}*/
-
-
-//    let bigBoat = Ship(name: "Big Long Boat", length: 5, orientation: "none", startPoint: [-1000,-1000])
-//    let battleBoat = Ship(name: "Battle Boat", length: 4, orientation: "none", startPoint: [-1000,-1000])
-//    let speedBoat = Ship(name: "Speed Boat", length: 3, orientation: "none", startPoint: [-1000,-1000])
-//    let underwaterBoat = Ship(name: "Under Water Boat", length: 3, orientation: "none", startPoint: [-1000,-1000])
-//    let littleBabyBoat = Ship(name: "Little Baby Boat", length: 2, orientation: "none", startPoint: [-1000,-1000])
-    
-//    let _ = [bigBoat, battleBoat, speedBoat,underwaterBoat, littleBabyBoat]
