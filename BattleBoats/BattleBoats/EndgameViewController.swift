@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Firebase
 
 class EndgameViewController: UIViewController {
+    var dbRef = Database.database().reference()
     var win = -1
+    var room_id = ""
 
     @IBOutlet weak var WinLossLabel: UILabel!
     
@@ -18,8 +21,25 @@ class EndgameViewController: UIViewController {
         if (win == 1) {
             WinLossLabel.text = "YOU WON"
         }
-
-        // Do any additional setup after loading the view.
+        
+        self.dbRef.child(self.room_id).child("game_over").getData { (error, snapshot) in
+            if let error = error
+            {
+                print("error getting data \(error)")
+            }
+            else if snapshot.exists()
+            {
+                var num_players_notified = snapshot.value as? Int
+                if (num_players_notified == 2) {
+                    self.dbRef.child(self.room_id).child("turn").removeAllObservers()
+                }
+                
+            }
+            else
+            {
+                print("no data available")
+            }
+        }
     }
     
 

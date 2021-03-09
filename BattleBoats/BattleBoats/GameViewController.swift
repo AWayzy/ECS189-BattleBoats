@@ -248,8 +248,6 @@ class GameViewController: UIViewController {
                             // self.gameOver(winner: 1)
                         }
                     }
-                    
-//                self.resignTurn()
                 }
             }
             else
@@ -260,6 +258,7 @@ class GameViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             if (self.winner != -1) {
+                self.resignTurn()
                 self.gameOver(winner: self.winner)
             }
         }
@@ -267,7 +266,24 @@ class GameViewController: UIViewController {
     
     func gameOver(winner: Int) {
         // End game in DB
-        self.dbRef.child(self.room_id).child("game_over").setValue(1)
+        self.dbRef.child(self.room_id).child("game_over").getData { (error, snapshot) in
+            if let error = error
+            {
+                print("error getting data \(error)")
+            }
+            else if snapshot.exists()
+            {
+                var num_players_notified = snapshot.value as? Int
+                num_players_notified? += 1
+                self.dbRef.child(self.room_id).child("game_over").setValue(num_players_notified)
+                //set the return value to be the last_move in the database
+                
+            }
+            else
+            {
+                print("no data available")
+            }
+        }
         
         // Transition
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -278,6 +294,7 @@ class GameViewController: UIViewController {
         }
         
         endgameViewController.modalPresentationStyle = .fullScreen
+        endgameViewController.room_id = self.room_id
         if (winner != is_host) {
             endgameViewController.win = 1
         } else {
