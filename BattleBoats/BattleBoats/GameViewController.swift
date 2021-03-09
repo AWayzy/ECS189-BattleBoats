@@ -375,6 +375,7 @@ class GameViewController: UIViewController {
                 }
                 else
                 {
+                    print("hit ship E")
                     //Update board string
                     //GRAPHICALLY UPDATE BOARD WITH HIT
                 }
@@ -390,6 +391,7 @@ class GameViewController: UIViewController {
                 }
                 else
                 {
+                    print("hit ship 3")
                     //Update board string
                     //GRAPHICALLY UPDATE BOARD WITH HIT
                 }
@@ -405,6 +407,7 @@ class GameViewController: UIViewController {
                 }
                 else
                 {
+                    print("hit ship 2")
                     //Update board string
                     //GRAPHICALLY UPDATE BOARD WITH HIT
                 }
@@ -420,6 +423,7 @@ class GameViewController: UIViewController {
                 }
                 else
                 {
+                    print("hit ship 4")
                     //Update board string
                     //GRAPHICALLY UPDATE BOARD WITH HIT
                 }
@@ -435,6 +439,7 @@ class GameViewController: UIViewController {
                 }
                 else
                 {
+                    print("hit ship 5")
                     //Update board string
                     //GRAPHICALLY UPDATE BOARD WITH HIT
                 }
@@ -442,6 +447,7 @@ class GameViewController: UIViewController {
         }
         else //did not hit
         {
+            print("miss")
             //Update board string
             //mark an x on the board where I missed
         }
