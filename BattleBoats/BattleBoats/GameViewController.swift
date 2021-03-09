@@ -232,20 +232,23 @@ class GameViewController: UIViewController {
 //                        self.gameOver(winner: 0)
 //                    }
                     return
-                } else if ((opp_2_count == 0 && opp_3_count == 0 && opp_E_count == 0 && opp_4_count == 0 && opp_5_count == 0)) {
-                    
-                    if (self.is_host == 1) {
-                        self.winner = 0
-                        // self.gameOver(winner: 0)
-                    } else {
-                        self.winner = 1
-                        // self.gameOver(winner: 1)
-                    }
                 } else {
                 // Repeat this until valid move
                     let myMove = self.getMyMove()
                     self.processMyMove(myMove)
                     self.sendMyMoveToDb(myMove)
+                    
+                    if ((opp_2_count == 0 && opp_3_count == 0 && opp_E_count == 0 && opp_4_count == 0 && opp_5_count == 0)) {
+                        
+                        if (self.is_host == 1) {
+                            self.winner = 0
+                            // self.gameOver(winner: 0)
+                        } else {
+                            self.winner = 1
+                            // self.gameOver(winner: 1)
+                        }
+                    }
+                    
 //                self.resignTurn()
                 }
             }
