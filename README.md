@@ -7,13 +7,17 @@ We're going to build a game with rules similar to the famous Battleship board ga
 2. *User vs. User (local device)
 3. *User vs. AI
 
-*Dependent on feasibility of implementation.
+*Dependent on timeline. Stretch goals.
 
-User vs. User (remote): The user finds a friend who is using the app. The two users will then be connected and will play against each other.
+*User vs. User (remote): The user finds a friend who is using the app. The two users will then be connected and will play against each other.
 
-User vs. User (local): The user A will select the part of the grid he wants to attack and then the app will display a transition view so that they can pass the phone to user B without giving away their ship positions. User B plays, repeat.
+*User vs. User (local): The user A will select the part of the grid he wants to attack and then the app will display a transition view so that they can pass the phone to user B without giving away their ship positions. User B plays, repeat.
 
 User vs. AI: The user will play against an AI, potentially with different difficulty levels.
+
+### Installation Notes
+
+Make sure that once either player has moved on to his Setup screen, that he does not quit the app or move it to the background. BattleBoats is to be played in real time until completion, at the risk of unexpected behavior otherwise.
 
 ## Trello Board
 
@@ -43,11 +47,11 @@ Austin Way (AWayzy). Role: Spearheaded gameplay implementation. Codified board d
 
 ## Sprint Planning 5
 
-Achievements: 
+Achievements: Host game room and find game by room. Backend fully developed; readers and listeners implemented to collect and send updates. UI fleshed out to adjust to user screens. All navigation in place for naturally advancing game flow. Several controlled actions tested in realtime. Merges up to date as of now.
 
-Moving forward: 
+Moving forward: Minor design changes. Maintain a local board representation to catch and conditionally display updates. Haptic feedback in gameplay (hit, miss, sink). Cycle views (start->..->end->start). Exhaustive testing. Clean up the base and merge everything.
 
-Potential issues: 
+Potential issues: Possible haptic feedback lag when diplaying an opponent's play on your board. Trouble displaying a portion of a ship, as currently constructed.
 
 ## Sprint Planning 4
 
