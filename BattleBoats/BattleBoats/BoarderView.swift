@@ -27,7 +27,7 @@ class BoarderView: UIScrollView {
         for row in stride(from: Int(bounds.minX), to: Int(bounds.height), by: Int.Stride(cellSide)) {
             for col in stride(from: Int(bounds.minY), to: Int(bounds.width), by: Int.Stride(cellSide)) {
                // drawSquare(col: col, row: row, color: color)
-                let cellUnit = CellUnit(x: col, y: row , size: Int(cellSide), color: color, type: "none")
+                let cellUnit = CellUnit(x: col, y: row , sizeX: Int(cellSide), sizeY: Int(cellSide), color: color, type: "none")
                 
                 //cell.addSubview(cellUnit)
                 self.addSubview(cellUnit)
