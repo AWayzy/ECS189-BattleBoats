@@ -114,6 +114,13 @@ class SetShipsViewController: UIViewController {
             
             let ship = ShipUnit(x:0 , y: 0, sizeX: Int(cellSide), sizeY: Int(cellSide * CGFloat(shipSize)), color: UIColor.yellow, type: "ship")
             
+            if ( index == 3 ){
+                ship.setName("E")
+            } else{
+                ship.setName(String(ship.lengthY))
+            }
+            
+           // print("ship's name \(ship.getName())")
             ship.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(ship)
             //constraint code

@@ -9,7 +9,7 @@ import UIKit
 
 class ShipUnit: CellUnit {
 
-   
+    var name : String = ""
     let degreeRanges: [Double] = [-360, -270, -180, -90, 0 , 360, 270, 180, 90]
     var degree = 0.0
     var orientation = "V"
@@ -347,5 +347,11 @@ class ShipUnit: CellUnit {
                self.translatesAutoresizingMaskIntoConstraints = true
        
    }
+    func setName( _ newName: String){
+        self.name = newName
+    }
+    func getName() -> String {
+        return self.name
+    }
     
 }
