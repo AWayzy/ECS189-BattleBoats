@@ -17,6 +17,8 @@ User vs. AI: The user will play against an AI, potentially with different diffic
 
 ### Installation Notes
 
+*TEMPORARILY:* Switch to branch "NewDirection". Download this branch. Move subfolder "OLD CODE NEW PROJ" to your Desktop. Move to the "BattleBoats" subdirectory in this "OLD CODE NEW PROJ" folder and run pod install. Open the BattleBoats.xcworkspace in Desktop/"OLD CODE NEW PROJ"/Battleboats to run the app.
+
 Make sure that once either player has moved on to his Setup screen, that he does not quit the app or move it to the background. BattleBoats is to be played in real time until completion, at the risk of unexpected behavior otherwise.
 
 ## Trello Board
