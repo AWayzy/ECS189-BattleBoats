@@ -7,26 +7,13 @@
 import UIKit
 import Firebase
 
-// From latest branch.
-// TODO: Show my board when it's opp's turn, opp's board when it's my turn.
-// TODO: Update board strings as well as local boards.
-// TODO: Return retval (oppMove) after delay, to allow DB read to kick in.
-// TODO: Waiting for other player to join.
-//var my_5_count = 5
-//var my_4_count = 4
-//var my_3_count = 3
-//var my_E_count = 3
-//var my_2_count = 2
-//var opp_5_count = 5
-//var opp_4_count = 4
-//var opp_3_count = 3
-//var opp_E_count = 3
-//var opp_2_count = 2
+
 
 
 
 class GameViewController: UIViewController {
     
+    // Initial conditions on each board
     var my_5_count = 5
     var my_4_count = 4
     var my_3_count = 3
@@ -38,6 +25,7 @@ class GameViewController: UIViewController {
     var opp_E_count = 3
     var opp_2_count = 2
     
+    // Game conditions
     var is_host = 0
     var room_id = ""
     var cur_player = -69
@@ -50,7 +38,7 @@ class GameViewController: UIViewController {
     
     var not_both_in = true
 
-    
+    // Set up and describe each board
     var myBoardView = UIView()
     var boardView = UIView()
     var boardView2 = UIView()
@@ -63,8 +51,10 @@ class GameViewController: UIViewController {
     var col = 0.0
     var row = 0.0
     
-    
+    // Temp
     let fakeship = Ship(name: "b", length: -1, orientation: "Q", x: 0, y: 0, cellSide: 0)
+    
+    // Move descriptors
     var wasHit = false
     var wasHitAt: Int = -1
     var shipWasHit = Ship(name: "b", length: -1, orientation: "Q", x: 0, y: 0, cellSide: 0)
@@ -102,7 +92,7 @@ class GameViewController: UIViewController {
                 overrideUserInterfaceStyle = .light
         }
     
-        
+        // Set the board up
         myBoardView = UIView(frame: CGRect(x: 35, y: (view.bounds.height * (0.4)) - ((view.bounds.width - 70)/2), width: view.bounds.width - 70, height: view.bounds.width - 70))
         
 //        makeMoveButton.frame = CGRect(x: view.bounds.width / 6, y: myBoardView.frame.maxY + 70, width: view.bounds.width * (2/3), height: view.bounds.width * (1/3))
@@ -132,6 +122,7 @@ class GameViewController: UIViewController {
             myBoardView.addSubview(view1)
         }
         
+        // Map ships to cells for display
         for cell in myCells{
             if cell.contains.count > 0 {
                 let cellUnit = CellUnit(x: cell.col, y: cell.row , size: Int(cell.cellSide), color: UIColor.gray, type: "cell", ID: cellIDNumber)
@@ -154,6 +145,7 @@ class GameViewController: UIViewController {
         
         print(cur_player)
         
+        // Initial player state onload
         if (cur_player < 0) {
             self.waitingLabel.text = "Waiting"
             self.makeMoveButton.isEnabled = false
@@ -178,6 +170,7 @@ class GameViewController: UIViewController {
         
         
         //MARK: Observing the Change
+        // We see that a player has made his move.
         dbRef.child(room_id).child("turn").observe(.childChanged, with: { (snapshot) -> Void in
             
             let cur_player = snapshot.value as? Int
@@ -221,12 +214,14 @@ class GameViewController: UIViewController {
             self.initialSetup(cur_player: cur_player) {
                 print("GOT TO CLOSURE")
                 print(cur_player)
+                // create the board once, let moves inform local conditions during the game
                 if self.didCreateOppBoard == true{}
                 else{
                 self.createOppBoard()
                 }
             
             //MARK: Turn Logic
+            // Second player has joined
             if (self.not_both_in && self.cur_player == -1 && (cur_player ?? 0) == 0) {
                 self.not_both_in = false
                 if (self.is_host == 1) {
@@ -245,6 +240,7 @@ class GameViewController: UIViewController {
                     self.view.bringSubviewToFront(self.myBoardView)
                 }
             }
+            // not
             else if ((cur_player ?? 0) < 0) {
                 self.waitingLabel.text = "Waiting"
                 self.oppBoardView.isHidden = true;
@@ -253,9 +249,10 @@ class GameViewController: UIViewController {
             }
             //MARK: My Turn
             if ((cur_player ?? 0) >= 0 && self.is_host != cur_player) {
-                print("I kno dey askin where da bag at")
 //                self.not_both_in = false
                 self.startTurnFlow {
+                    // Update your board and notify you.
+                    
                     if self.wasHit{
                         let shipname = self.getFullName(name: self.shipWasHit.name)
                         let cell = self.myCells[self.wasHitAt]
@@ -342,6 +339,8 @@ class GameViewController: UIViewController {
                     }
                 }
                 
+                // Kill the message after time to read.
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
                     self.waitingLabel.text = "Your Play"
                     self.makeMoveButton.isEnabled = true
@@ -403,6 +402,7 @@ class GameViewController: UIViewController {
             oppBoardView.addSubview(view1)
         }
 
+        // Base board
         for i in 0...myCells.count - 1{
             let cellUnit = CellUnit(x: myCells[i].col, y: myCells[i].row , size: Int(myCells[i].cellSide), color: color1, type: "cell", ID: oppCellIDNumber)
             self.oppBoardView.addSubview(cellUnit)
@@ -420,6 +420,7 @@ class GameViewController: UIViewController {
         self.didCreateOppBoard = true
     }
     
+    // See my board when it's their turn, theirs when it's mine
     func changeView(){
         if myBoardView.isHidden{
             myBoardView.isHidden = false
@@ -460,6 +461,7 @@ class GameViewController: UIViewController {
                     self.processOppMove(oppMove)
                 }
                 
+                // none of my ships remaining. I lose
                 if (self.my_2_count == 0 && self.my_3_count == 0 && self.my_E_count == 0 && self.my_4_count == 0 && self.my_5_count == 0){
                     self.isGameOver = true
                     self.winner = self.is_host
@@ -505,6 +507,7 @@ class GameViewController: UIViewController {
                     self.processMyMove(myMove)
                 }
                 
+                // they lose
                 if (self.opp_2_count == 0 && self.opp_3_count == 0 && self.opp_E_count == 0 && self.opp_4_count == 0 && self.opp_5_count == 0){
                     self.isGameOver = true
                     if self.is_host == 0{
@@ -563,7 +566,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        // Transition
+        // Transition to end game screen, with win/loss info
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let endgameViewController = storyboard.instantiateViewController(withIdentifier: "endgameViewController") as? EndgameViewController else {
             assertionFailure("couldn't find vc")
@@ -604,14 +607,12 @@ class GameViewController: UIViewController {
                 if (my_E_count == 0)
                 {
                     print("sunk my ship E")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     print("hit my ship E")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "3"
@@ -621,14 +622,12 @@ class GameViewController: UIViewController {
                 if (my_3_count == 0)
                 {
                     print("sunk my ship 3")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     print("hit my ship 3")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "2"
@@ -638,14 +637,12 @@ class GameViewController: UIViewController {
                 if (my_2_count == 0)
                 {
                     print("sunk my ship 2")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     print("hit my ship 2")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "4"
@@ -654,14 +651,12 @@ class GameViewController: UIViewController {
                 if (my_4_count == 0)
                 {
                     print("sunk my ship 4")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     print("hit my ship 4")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "5"
@@ -670,14 +665,12 @@ class GameViewController: UIViewController {
                 if (my_5_count == 0)
                 {
                     print("sunk my ship 5")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     print("hit my ship 5")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
         }
@@ -688,8 +681,7 @@ class GameViewController: UIViewController {
             self.shipWasMissed = fakeship
             self.shipWasMissed.name = "\(checkMove)"
             print("miss")
-            //Update board string
-            //mark an x on the board where opp missed
+            
         }
     }
     
@@ -706,16 +698,14 @@ class GameViewController: UIViewController {
                     self.textToDisplay = "You Sunk Their \(self.getFullName(name: String(checkMove)))!"
                     
                     print("sunk ship E")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     self.textToDisplay = "You Hit!"
                     
                     print("hit ship E")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "3"
@@ -726,16 +716,14 @@ class GameViewController: UIViewController {
                     self.textToDisplay = "You Sunk Their \(self.getFullName(name: String(checkMove)))!"
                     
                     print   ("sunk ship 3")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     self.textToDisplay = "You Hit!"
                 
                     print("hit ship 3")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "2"
@@ -746,16 +734,14 @@ class GameViewController: UIViewController {
                     self.textToDisplay = "You Sunk Their \(self.getFullName(name: String(checkMove)))!"
 
                     print("sunk ship 2")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     self.textToDisplay = "You Hit!"
                     
                     print("hit ship 2")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "4"{
@@ -767,16 +753,14 @@ class GameViewController: UIViewController {
                     self.textToDisplay = "You Sunk Their \(self.getFullName(name: String(checkMove)))!"
                     
                     print("sunk ship 4")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     self.textToDisplay = "You Hit!"
                     
                     print("hit ship 4")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
             else if checkMove == "5"
@@ -787,16 +771,14 @@ class GameViewController: UIViewController {
                     self.textToDisplay = "You Sunk Their \(self.getFullName(name: String(checkMove)))!"
                 
                     print("sunk ship 5")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH SUNK
+                    
                 }
                 else
                 {
                     self.textToDisplay = "You Hit!"
                     
                     print("hit ship 5")
-                    //Update board string
-                    //GRAPHICALLY UPDATE BOARD WITH HIT
+                    
                 }
             }
         }
@@ -805,8 +787,7 @@ class GameViewController: UIViewController {
             self.textToDisplay = "You Missed!"
             
             print("miss")
-            //Update board string
-            //mark an x on the board where I missed
+            
         }
     }
     
@@ -828,12 +809,6 @@ class GameViewController: UIViewController {
             let turn = ["cur_player": is_host]
             let gameUpdates = ["turn": turn, "last_move": self.tappedCell] as [String : Any]
             
-//            dbRef.child(room_id).child("last_move").setValue(self.tappedCell)
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-//                self.endTurnFlow()
-//
-//            }
-//            dbRef.child(room_id).child("turn").child("cur_player").setValue(is_host)
 
             dbRef.child(room_id).updateChildValues(gameUpdates) { error, dbRef in
 //                DispatchQueue.main.async {
@@ -847,18 +822,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    func updateBoardView(){
-        
-        // write some sort of iteration here that will iteratively read the correct board and update the view controller accordingly. still doing research on how to properly detect screen sizes and everything, but this is likely how we will create most of the board
-    
-        return
-    
-    }
-    
-    func runGame(){
-        return
-    }
-    
     func initialSetup(cur_player: Int?, completionHandler: @escaping () -> Void) {
         print("GOT TO INITIAL SETUP!")
         
@@ -869,6 +832,7 @@ class GameViewController: UIViewController {
             board_n = "board_1"
         }
         
+        // Set the board up with opp data if it exists (second to join)
         if (self.not_both_in && self.cur_player == -1 && (cur_player ?? 0) == 0) {
 //            self.not_both_in = false
             print("Join to Your")
