@@ -2,18 +2,9 @@
 
 ## Project Summary
 
-We're going to build a game with rules similar to the famous Battleship board game. It will have three* game modes:
-1. User vs. User (remote)
-2. *User vs. User (local device)
-3. *User vs. AI
+We're going to build an online multiplayer game with rules similar to the famous Battleship board game.
 
-*Dependent on timeline. Stretch goals.
-
-*User vs. User (remote): The user finds a friend who is using the app. The two users will then be connected and will play against each other.
-
-*User vs. User (local): The user A will select the part of the grid he wants to attack and then the app will display a transition view so that they can pass the phone to user B without giving away their ship positions. User B plays, repeat.
-
-User vs. AI: The user will play against an AI, potentially with different difficulty levels.
+User vs. User (remote): The user finds a friend who is using the app. The two users will then be connected and will play against each other in real time.
 
 ### Installation Notes
 
