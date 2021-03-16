@@ -19,7 +19,7 @@ User vs. AI: The user will play against an AI, potentially with different diffic
 
 Execute pod install in the project directory before running the app.
 
-Note on shortcomings: While setting ships, there remains one persistent bug where rotating a ships multiple times can randomly result in an illegal board configuration, and will not allow you to proceed. If this occurs, please limit rotations or avoid altogether in order to move on to the game.
+Note on shortcomings: While setting ships, there remains one persistent bug where rotating ships multiple times during placement can randomly result in illegal board configurations, and will not allow you to proceed. If this occurs, please limit rotations or avoid altogether in order to move on to the game.
 
 Make sure that once either player has moved on to his Setup screen, that he does not quit the app or move it to the background. BattleBoats is to be played in real time until completion, at the risk of unexpected behavior otherwise.
 
