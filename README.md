@@ -19,7 +19,13 @@ User vs. AI: The user will play against an AI, potentially with different diffic
 
 Execute pod install in the project directory before running the app.
 
-Note on shortcomings: While setting ships, there remains one persistent bug where rotating ships multiple times during placement can randomly result in illegal board configurations, and will not allow you to proceed. If this occurs, please limit rotations or avoid altogether in order to move on to the game.
+### Bugs/Inconveniences
+
+Once a ship is rotated, it *must* be snapped back onto the board. Otherwise, you will be forced to set all your ships again.
+
+We do not allow overlapped ships. However, if a ship on the board is rotated and not snapped back into place, a new ship can be placed on top of it. Attempting to proceed with such a configuration will force you to set all your ships again.
+
+Moreover, we did use GestureRecognziers to allow ship rotation with your fingers, but our ships are too small, so this feature does not work on a phone right now. The rotate button is currently the most effective option for ship rotation.
 
 Make sure that once either player has moved on to his Setup screen, that he does not quit the app or move it to the background. BattleBoats is to be played in real time until completion, at the risk of unexpected behavior otherwise.
 
