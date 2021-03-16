@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-We're going to build an online multiplayer game with rules similar to the famous Battleship board game.
+We've built an online multiplayer game with rules similar to the famous Battleship board game.
 
 User vs. User (remote): The user finds a friend who is using the app. The two users will then be connected and will play against each other in real time.
 
